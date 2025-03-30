@@ -16,6 +16,7 @@
               <li><a href="#game-modes">Game Modes</a></li>
               <li><a href="#creating-a-quiz">Creating a Quiz</a></li>
               <li><a href="#preferences">Preferences</a></li>
+              <li><a href="#arguments">Arguments</a></li>
               <li><a href="#conclusion">Conclusion</a></li>
           </ul>
 
@@ -139,6 +140,65 @@
                 <li><strong>Volume</strong>: Adjust the volume of the background music to your liking.</li>
                 <li><strong>Background Colour</strong>: Customize the background colour of the application to create a comfortable visual experience. It uses RGB so you need to determine how much of each colour to add to the screen. If the sliders are all the way to the left the screen will be black. Vice versa, white. Currently it does not update automatically.</li>
             </ul>
+
+        <h2 id="arguments">Using Arguments</h2>
+        <p>The <code>quiz.py</code> script accepts the following arguments when starting:</p>    
+        <ul>
+            <li><code>-h, --help</code>: Displays the help message and exits.</li>
+            <li><code>-q [QUIZPATH], --quizPath [QUIZPATH]</code>: Specifies the path to a quiz file. This allows you to load a specific quiz to play.</li>
+            <li><code>-g [GAMEMODE], --gameMode [GAMEMODE]</code>: Specifies the game mode. The available game modes are:
+                <ul>
+                    <li><code>classic</code></li>
+                    <li><code>classicV2</code></li>
+                    <li><code>speedRun</code></li>
+                    <li><code>survival</code></li>
+                    <li><code>practice</code></li>
+                </ul>
+            </li>
+            <li><code>-v , --volume</code>: Sets the volume level for the game. Enter a float value between 0 and 1.</li>
+        </ul>
+    
+        <h2>Examples</h2>
+        <h3>Example 1: Load a Specific Quiz</h3>
+        <p>To load a specific quiz, use the <code>-q</code> argument followed by the path to the quiz file:</p>
+        <pre><code>python3 quiz.py -q path/to/quiz.json</code></pre>
+    
+        <h3>Example 2: Set the Game Mode</h3>
+        <p>To set the game mode, use the <code>-g</code> argument followed by the desired game mode:</p>
+        <pre><code>python3 quiz.py -g classic</code></pre>
+    
+        <h3>Example 3: Set the Volume Level</h3>
+        <p>To set the volume level, use the <code>-v</code> argument followed by a float value between 0 and 1:</p>
+        <pre><code>python3 quiz.py -v 0.5</code></pre>
+    
+        <h3>Example 4: Combine Arguments</h3>
+        <p>You can combine multiple arguments when running the script. For example, to load a specific quiz with the classic game mode and set the volume to 0.8:</p>
+        <pre><code>python3 quiz.py -q path/to/quiz.json -g classic -v 0.8</code></pre>
+
+        <p>The arguments may be combined in any other way, except that the quiz must be specified for the game mode argument to be given. This may be worked on in the future.</p>
+    
+        <h3>Conclusion</h3>
+        <p>By using these arguments, you can customize your QuizMaster experience to suit your preferences.</p>
+        
+        ###### Current Game Mode Options
+        
+        - classic
+        - classicV2
+        - speedRun
+        - survival
+        - practice
+        
+        Similarly in QuizCreator, a quiz parameter can be added to the end but for obvious reasons not a game mode parameter.
+        
+        ```
+        usage: QuizCreator [-h] [-q [QUIZPATH]]
+        
+        Side program for QuizMaster, to make quizzes.
+        
+        options:
+          -h, --help            show this help message and exit
+          -q [QUIZPATH], --quizPath [QUIZPATH]
+        ```
 
         <h2 id="conclusion">Conclusion</h2>
             <p>Explore these features to get the most out of your QuizMaster experience. Whether you're playing for fun or using it as an educational tool, QuizMaster offers a variety of options to suit your needs.</p>
