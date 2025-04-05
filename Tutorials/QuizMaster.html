@@ -45,6 +45,7 @@
               <li><strong>Classic V2</strong>: Similar to Classic, but with an absolute time limit instead of individual time limits for each question.</li>
               <li><strong>Speed Run</strong>: Answer all questions correctly in the shortest time possible. Incorrect answers require redoing.</li>
               <li><strong>Survival</strong>: Players have a limited number of lives. Each incorrect answer costs a life, and the game ends when all lives are lost.</li>
+              <li><strong>Practice</strong>: A relaxed environment to play the quiz with no time limit or score tracking. Users can opt to reveal the answer at any time.</li>
           </ul>
           
           <h3>Classic Mode</h3>
@@ -106,6 +107,15 @@
               <li>Each incorrect answer costs a life.</li>
               <li>Score calculation based on accuracy and remaining lives.</li>
           </ul>
+          <h3>Practice</h3>
+          <p>The practice mode offers a relaxed environment for users to engage with quiz questions at their own pace. Immediate feedback is provided, notifying the player if the answer was correct. Participants can opt to reveal the correct answer or end the quiz at any time. Scores are not recorded.
+          Follow these steps to play:</p>
+          <ol>
+              <li>Choose the <strong>Practice</strong> game mode from the game mode selection screen.</li>
+              <li>Answer questions at any pace you want.</li>
+              <li>Reveal the answer with the <code>Reveal Answer</code> button.</li>
+          </ol>
+
 
           <h2 id="creating-a-quiz">Creating a Quiz</h2>
           <p>To create a new quiz, follow these steps:</p>
@@ -165,7 +175,8 @@
     
         <h3>Example 2: Set the Game Mode</h3>
         <p>To set the game mode, use the <code>-g</code> argument followed by the desired game mode:</p>
-        <pre><code>python3 quiz.py -g classic</code></pre>
+        <pre><code>python3 quiz.py -q path/to/quiz.json -g classic</code></pre>
+        <p><i>Note that the quiz path must be specified along with the game mode.</i></p>
     
         <h3>Example 3: Set the Volume Level</h3>
         <p>To set the volume level, use the <code>-v</code> argument followed by a float value between 0 and 1:</p>
@@ -180,25 +191,15 @@
         <h3>Conclusion</h3>
         <p>By using these arguments, you can customize your QuizMaster experience to suit your preferences.</p>
         
-        ###### Current Game Mode Options
-        
-        - classic
-        - classicV2
-        - speedRun
-        - survival
-        - practice
-        
-        Similarly in QuizCreator, a quiz parameter can be added to the end but for obvious reasons not a game mode parameter.
-        
-        ```
-        usage: QuizCreator [-h] [-q [QUIZPATH]]
-        
-        Side program for QuizMaster, to make quizzes.
-        
-        options:
-          -h, --help            show this help message and exit
-          -q [QUIZPATH], --quizPath [QUIZPATH]
-        ```
+        <h6>Game Mode Options</h6>
+        <ul>
+        <li>classic</li>
+        <li>classicV2</li>
+        <li>speedRun</li>
+        <li>survival</li>
+        <li>practice</li>
+        </ul>
+        <p>Similarly in QuizCreator, a quiz parameter can be added to the end but for obvious reasons not a game mode parameter.</p>
 
         <h2 id="conclusion">Conclusion</h2>
             <p>Explore these features to get the most out of your QuizMaster experience. Whether you're playing for fun or using it as an educational tool, QuizMaster offers a variety of options to suit your needs.</p>
