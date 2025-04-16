@@ -7,7 +7,7 @@
     <a href="../index.html">Home Page</a>
     <h1>A Basic QuizMaster Tutorial</h1>
             <h2>Introduction</h2>
-            <p>Welcome to this QuizMaster tutorial! The guide will help you understand how to use key features of the QuizMaster application, an open-source alternative to Kahoot. QuizMaster is written in Python and provides a powerful platform for creating and playing educational quizzes.</p>
+            <p>Welcome to this QuizMaster tutorial! The guide will help you understand how to use key features of the QuizMaster application, an open-source alternative to Kahoot. Please note that this guide explains how to use QuizMaster, not how to get it running. For this, we have created a seperate <a href="Tutorials/QuizMasterInstallation.html">installation and troubleshooting guide</a>. QuizMaster is written in Python and provides a powerful platform for creating and playing educational quizzes.</p>
 
           <h2>Table of Contents</h2>
           <ul>
@@ -21,7 +21,7 @@
           </ul>
 
           <h2 id="home-screen">Home Screen</h2>
-          <p>When you start QuizMaster, you will be greeted by the home screen. From here, you can choose to either play a quiz or create a new quiz.</p>
+          <p>When you start QuizMaster, you will be greeted by the home screen. From here, you can choose to either play a quiz, create aand edit quizzes and change the settings (strictly speaking, you can also use the <code>About</code> button, but it is fairly self-explanitory).</p>
           <img src="../images/QM1.png" alt="Home Screen">
           <p>Click on <strong>Play a Quiz</strong> to start playing or <strong>Make a Quiz</strong> to create a new quiz.</p>
 
@@ -29,11 +29,23 @@
           <p>To play a quiz, follow these steps:</p>
           <ol>
               <li>Click on <strong>Play a Quiz</strong> from the home screen.</li>
-              <li>Type in the topic you want to play. Simply pressing enter will list every single quiz.</li>
-              <li>Select a quiz from the list of available quizzes.</li>
+              <li>Either:</li>
+              <ul>
+                <li>Type in the topic you want to play. Simply pressing enter will list every single quiz.</li>
+                <li>Select a quiz from the list of available quizzes.</li>
+              </ul>
+              <li>Or:</li>
+              <ul>
+                 <li>Click on <code>Random Quiz</code></li>
+              </ul>
+              <li>Or:</li>
+              <ul>
+                 <li>Click on <code>General Knowledge Quiz</code>, which takes random questions from random quizzes and merges them into one quiz.</li>
+                 <li>Choose the desired amount of questions using the slider.</li>
+              </ul>
               <li>Choose the game mode you want to play.</li>
               <li>Answer the questions within the time limit (if applicable).</li>
-              <li>Your score will be displayed at the end of the quiz.</li>
+              <li>Your score (or time) will be displayed at the end of the quiz.</li>
           </ol>
           <p>During the quiz, you will see a question and multiple answer options. Click on the correct answer to proceed to the next question, or type the number asociated with the answer.</p>
           <p>If you selected the <strong>Speed Run</strong> mode, try to answer all questions correctly as quickly as possible. In <strong>Survival</strong> mode, be careful with your answers as you have a limited number of lives.</p>
@@ -124,16 +136,16 @@
               <li>Enter the quiz title</li>
               <li>Add questions by clicking on the <strong>Add</strong> button.</li>
               <li>For each question, enter the question text, correct answer, and a set of incorrect answers separated by commas.</li>
-              <li>Save the quiz once all questions have been added. Use the <strong>Save As</strong> function if creating an entirely new quiz, otherwise <strong>Save</strong> is enough.</li>
+              <li>Save the quiz once all questions have been added. Use the <strong>Save As</strong> function from <code>Files</code> in the top left if creating an entirely new quiz, otherwise <strong>Save</strong> (just above <code>Save As</code>) will suffice.</li>
           </ol>
           <img src="../images/QM2.png" alt="Quiz Creator">
-          <p>Use the interactive GUI to manage and create quiz questions. You can edit, delete, duplicate, open, save, and load quiz questions. Many of these will have tooltips, so should be self-explanitory.</self-explanitory></p>
+          <p>Use the interactive GUI to manage and create quiz questions. You can add, edit, delete and duplicate questions. Many of these will have tooltips, so should be self-explanitory.</p>
           <p>Make sure to provide clear and correct questions and answers to ensure a good quiz experience.</p>
           <p>
               We welcome pull requests for both code contributions and the creation of new quizzes.</p>
 
               <h2> Getting a new quiz integrated</h2>
-             Once you have saved the quiz as file with extension `.json` in the data folder, commit to your branch of the repository, push to github and make a pull request to the master branch.
+             Once you have saved the quiz as file with extension `.json` in the data folder, commit to your branch of the repository, push to github and make a pull request to the main branch.
               </p>
 
               <p>
@@ -148,7 +160,7 @@
             <ul>
                 <li><strong>Music</strong>: Choose from a selection of background music tracks to play during your quiz sessions.</li>
                 <li><strong>Volume</strong>: Adjust the volume of the background music to your liking.</li>
-                <li><strong>Background Colour</strong>: Customize the background colour of the application to create a comfortable visual experience. It uses RGB so you need to determine how much of each colour to add to the screen. If the sliders are all the way to the left the screen will be black. Vice versa, white. Currently it does not update automatically.</li>
+                <li><strong>Background Colour</strong>: Customize the background colour of the application to create a comfortable visual experience. It uses RGB so you need to determine how much of each colour to add to the screen. If the sliders are all the way to the left the screen will be black. Vice versa, white. Currently it does not update automatically, so do not worry if nothing happens. This is a bug that will soon be fixed.</li>
             </ul>
 
         <h2 id="arguments">Using Arguments</h2>
@@ -171,20 +183,20 @@
         <h2>Examples</h2>
         <h3>Example 1: Load a Specific Quiz</h3>
         <p>To load a specific quiz, use the <code>-q</code> argument followed by the path to the quiz file:</p>
-        <pre><code>python3 quiz.py -q path/to/quiz.json</code></pre>
+        <pre><code>./quiz.py -q path/to/quiz.json</code></pre>
     
         <h3>Example 2: Set the Game Mode</h3>
         <p>To set the game mode, use the <code>-g</code> argument followed by the desired game mode:</p>
-        <pre><code>python3 quiz.py -q path/to/quiz.json -g classic</code></pre>
+        <pre><code>./quiz.py -q path/to/quiz.json -g classic</code></pre>
         <p><i>Note that the quiz path must be specified along with the game mode.</i></p>
     
         <h3>Example 3: Set the Volume Level</h3>
         <p>To set the volume level, use the <code>-v</code> argument followed by a float value between 0 and 1:</p>
-        <pre><code>python3 quiz.py -v 0.5</code></pre>
+        <pre><code>./quiz.py -v 0.5</code></pre>
     
         <h3>Example 4: Combine Arguments</h3>
-        <p>You can combine multiple arguments when running the script. For example, to load a specific quiz with the classic game mode and set the volume to 0.8:</p>
-        <pre><code>python3 quiz.py -q path/to/quiz.json -g classic -v 0.8</code></pre>
+        <p>You can combine multiple arguments when running the script. For example, loading a harry potter quiz with the classic game mode and set the volume to 0.8:</p>
+        <pre><code>./quiz.py -q "Quizzes/books and movies/harrypotter.json" -g classic -v 0.8</code></pre>
 
         <p>The arguments may be combined in any other way, except that the quiz must be specified for the game mode argument to be given. This may be worked on in the future.</p>
     
