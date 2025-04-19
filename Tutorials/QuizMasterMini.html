@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuizMasterMini Tutorial</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <a href="../index.html">Home Page</a>
+    <h1>QuizMasterMini Tutorial</h1>
+
+    <h2>Introduction</h2>
+    <p>Welcome to the QuizMasterMini tutorial! QuizMasterMini is a scaled-down version of QuizMaster, designed for users with limited device resources or low bandwidth. Despite its compact size, QuizMasterMini retains many of the core functionalities of QuizMaster, ensuring a seamless quizzing experience.</p>
+
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#home-screen">Home Screen</a></li>
+        <li><a href="#playing-a-quiz">Playing a Quiz</a></li>
+        <li><a href="#creating-a-quiz">Creating a Quiz</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+
+    <h2 id="installation">Installation</h2>
+    <p>To install QuizMasterMini, follow these simple steps:</p>
+    <ol>
+        <li>Clone the repository:
+            <pre><code>Clone this repository via terminal: git clone --recurse-submodules https://github.com/QuizMaster-world/QuizMasterMini</code></pre>
+        </li>
+        <li>Navigate to the QuizMasterMini directory:
+            <pre><code>cd QuizMasterMini</code></pre>
+        </li>
+        <li>Run the following commands:
+                    <p>Linux: <pre><code>python3 -m venv venv</code></pre></p>
+                    <p>Windows: <pre><code>python -m venv venv</code></pre></p>
+                </li>
+                <li>Activate the environment:
+                    <p>Linux: <pre><code>source venv/bin/activate</code></pre></p>
+                    <p>Windows: <pre><code>call venv\Scripts\activate</code></pre></p>
+                </li>
+                <li>Install tkinter:
+                    <p>Linux: <pre><code>sudo apt-get install python3-tk</code></pre></p>
+                </li>
+                <li>Install dependencies:
+                    <p>Linux: <pre><code>pip3 install -r requirements.txt</code></pre></p>
+                    <p>Windows: <pre><code>pip install -r requirements.txt</code></pre></p>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+    <h2 id="home-screen">Home Screen</h2>
+    <p>When you launch QuizMasterMini, you’ll see a simplified home screen with two options:</p>
+    <ul>
+        <li><strong>Play a Quiz:</strong> Start playing a quiz from the available options.</li>
+        <li><strong>Make a Quiz:</strong> Create a new quiz using the built-in quiz editor.</li>
+    </ul>
+    <p>Click on the desired option to proceed.</p>
+
+    <h2 id="playing-a-quiz">Playing a Quiz</h2>
+    <p>Follow these steps to play a quiz in QuizMasterMini:</p>
+    <ol>
+        <li>From the home screen, click on <strong>Play a Quiz</strong>.</li>
+        <li>Select a quiz from the list of available quizzes.</li>
+        <li>Answer each question by selecting the correct option from the listbox.</li>
+        <li>After completing the quiz, your score will be displayed.</li>
+    </ol>
+
+    <h2 id="creating-a-quiz">Creating a Quiz</h2>
+    <p>To create a new quiz, follow these steps:</p>
+    <ol>
+        <li>Click on <strong>Make a Quiz</strong> from the home screen.</li>
+        <li>Enter a title for your quiz.</li>
+        <li>Add questions by filling out the following fields:
+            <ul>
+                <li><strong>Question:</strong> Enter the quiz question text.</li>
+                <li><strong>Correct Answer:</strong> Provide the correct answer.</li>
+                <li><strong>Incorrect Answers:</strong> List the incorrect answer options, separated by commas.</li>
+            </ul>
+        </li>
+        <li>Save the quiz when you’re done.</li>
+    </ol>
+    <p>Your saved quiz will be available for playing under the <strong>Play a Quiz</strong> section.</p>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    <h3>Common Issues and Solutions</h3>
+    <ul>
+        <li><strong>Python Module Conflicts:</strong> Use a virtual environment to prevent dependency conflicts.</li>
+        <li><strong>Windows Setup Errors:</strong> Ensure you’re using the correct version of Python and have all necessary dependencies installed.</li>
+        <li><strong>Missing Quizzes:</strong> Check that the quizzes are saved in the correct directory.</li>
+    </ul>
+    <h3>Getting Help</h3>
+    <p>If you encounter further issues, visit our <a href="https://github.com/QuizMaster-world/QuizMasterMini">GitHub repository</a> for support or submit an issue.</p>
+
+    <h2 id="conclusion">Conclusion</h2>
+    <p>QuizMasterMini is a lightweight and efficient solution for users who want a basic yet functional quizzing platform. Whether you're playing or creating quizzes, QuizMasterMini ensures a smooth experience while consuming minimal resources. Happy quizzing!</p>
+
+    <footer>
+        <p>&copy; 2025 QuizMasterMini. All rights reserved.</p>
+    </footer>
+</body>
+</html>

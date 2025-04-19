@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuizMasterLite Tutorial</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <a href="../index.html">Home Page</a>
+    <h1>QuizMasterLite Tutorial</h1>
+
+    <h2>Introduction</h2>
+    <p>Welcome to the QuizMasterLite tutorial! QuizMasterLite is a lightweight version of QuizMaster, designed for users who prefer a streamlined experience. With a reduced size and fewer dependencies, it provides the core quiz functionalities while minimizing resource use by ommiting the extra frilly bits.</p>
+
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#home-screen">Home Screen</a></li>
+        <li><a href="#playing-a-quiz">Playing a Quiz</a></li>
+        <li><a href="#creating-a-quiz">Creating a Quiz</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+
+    <h2 id="installation">Installation</h2>
+    <p>Follow these steps to install QuizMasterLite:</p>
+    <ol>
+        <li>Clone the repository via terminal:
+            <pre><code>Clone this repository via terminal: git clone --recurse-submodules https://github.com/badguyland/QuizMasterLite</code></pre>
+        </li>
+        <li>Navigate to the directory:
+            <pre><code>cd QuizMasterLite</code></pre>
+        </li>
+        <li>Run the setup script:
+            <ul>
+                <li>Linux: <code>./setup.sh</code></li>
+                <li>Windows: <code>setup.bat</code></li>
+            </ul>
+        </li>
+        <li>Alternatively, perform a manual setup (Ubuntu/Debian only):
+            <ol>
+                <li>Create a virtual environment:
+                    <pre><code>python3 -m venv venv</code></pre>
+                </li>
+                <li>Activate the environment:
+                    <pre><code>source venv/bin/activate</code></pre>
+                </li>
+                <li>Install tkinter:
+                    <pre><code>sudo apt-get install python3-tk</code></pre>
+                </li>
+                <li>Install dependencies:
+                    <pre><code>pip3 install -r requirements.txt</code></pre>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+    <h2 id="home-screen">Home Screen</h2>
+    <p>When you start QuizMasterLite, the home screen provides two primary options:</p>
+    <ul>
+        <li><strong>Play a Quiz</strong>: Choose this to play an existing quiz.</li>
+        <li><strong>Make a Quiz</strong>: Choose this to create a new quiz.</li>
+    </ul>
+    <p>Simply click on the desired option to proceed.</p>
+
+    <h2 id="playing-a-quiz">Playing a Quiz</h2>
+    <p>To play a quiz, follow these steps:</p>
+    <ol>
+        <li>Click on <strong>Play a Quiz</strong> from the home screen.</li>
+        <li>Select a quiz from the list of available quizzes after searching.</li>
+        <li>Answer the questions by clicking on the correct option or typing the corresponding number.</li>
+        <li>At the end, your score will be displayed.</li>
+    </ol>
+
+    <h2 id="creating-a-quiz">Creating a Quiz</h2>
+    <p>To create a new quiz, follow these steps:</p>
+    <ol>
+        <li>Click on <strong>Make a Quiz</strong> from the home screen.</li>
+        <li>Provide a title for your quiz.</li>
+        <li>Add questions and answers:
+            <ul>
+                <li>Enter the question text.</li>
+                <li>Specify the correct answer.</li>
+                <li>Add incorrect answers, seperated by commas.</li>
+            </ul>
+        </li>
+        <li>Save the quiz when you're done.</li>
+    </ol>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+    <h3>Common Issues</h3>
+    <ul>
+        <li><strong>Python Module Conflicts:</strong> Set up a virtual environment to isolate dependencies.</li>
+        <li><strong>Windows Setup Issues:</strong> Ensure the correct Python version is installed and avoid conflicts with other tools.</li>
+    </ul>
+
+    <h2 id="conclusion">Conclusion</h2>
+    <p>QuizMasterLite offers a streamlined and efficient quiz experience. Whether you're playing or creating quizzes, it provides all the essential features in a lightweight package. Happy quizzing!</p>
+
+    <footer>
+        <p>&copy; 2025 QuizMasterLite. All rights reserved.</p>
+    </footer>
+</body>
+</html>
