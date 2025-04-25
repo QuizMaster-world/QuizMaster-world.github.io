@@ -4,7 +4,22 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <a href="../index.html">Home Page</a>
+    <div class="navbar">
+        <a href="../index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Tutorials 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="QuizMaster.html">QuizMaster Tutorial</a>
+                <a href="QuizMasterLite.html">QuizMasterLite Tutorial</a>
+                <a href="QuizMasterMini.html">QuizMasterMini Tutorial</a>
+                <a href="QuizMasterInstallation.html">Installation Guide</a>
+            </div>
+        </div>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
     <h1>A Basic QuizMaster Tutorial</h1>
             <h2>Introduction</h2>
             <p>Welcome to this QuizMaster tutorial! The guide will help you understand how to use key features of the QuizMaster application, an open-source alternative to Kahoot. Please note that this guide explains how to use QuizMaster, not how to get it running. For this, we have created a seperate <a href="Tutorials/QuizMasterInstallation.html">installation and troubleshooting guide</a>. QuizMaster is written in Python and provides a powerful platform for creating and playing educational quizzes.</p>
@@ -21,7 +36,7 @@
           </ul>
 
           <h2 id="home-screen">Home Screen</h2>
-          <p>When you start QuizMaster, you will be greeted by the home screen. From here, you can choose to either play a quiz, create aand edit quizzes and change the settings (strictly speaking, you can also use the <code>About</code> button, but it is fairly self-explanitory).</p>
+          <p>When you start QuizMaster, you will be greeted by the home screen. From here, you can choose to either play a quiz, create and edit quizzes and change the settings (strictly speaking, you can also use the <code>About</code> button, but it is fairly self-explanitory).</p>
           <img src="../images/QM1.png" alt="Home Screen">
           <p>Click on <strong>Play a Quiz</strong> to start playing or <strong>Make a Quiz</strong> to create a new quiz.</p>
 
@@ -53,7 +68,7 @@
           <h2 id="game-modes">Game Modes</h2>
           <p>QuizMaster supports multiple game modes, each offering a unique experience:</p>
           <ul>
-              <li><strong>Classic</strong>: Answer questions with a countdown timer. Your score is recorded, and at the end, you will receive feedback based on your score.</li>
+              <li><strong>Classic</strong>: Answer questions with a countdown timer of between 10 and 20 seconds on average. Your score is recorded, and at the end, you will receive feedback based on your score.</li>
               <li><strong>Classic V2</strong>: Similar to Classic, but with an absolute time limit instead of individual time limits for each question.</li>
               <li><strong>Speed Run</strong>: Answer all questions correctly in the shortest time possible. Incorrect answers require redoing.</li>
               <li><strong>Survival</strong>: Players have a limited number of lives. Each incorrect answer costs a life, and the game ends when all lives are lost.</li>
