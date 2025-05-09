@@ -193,7 +193,7 @@ ul li a:hover {
   }
 
   ul {
-      flex-direction: column;
+      flex-direction: row;
   }
 
   ul li {
