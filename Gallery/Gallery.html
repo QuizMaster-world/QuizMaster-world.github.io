@@ -1,56 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>
-Gallery
-</title>
-<link rel="stylesheet" href="../style.css">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-</head>
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: #02ff02;
+  color: black;
+  width: 1000px;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+@media (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
 <body>
 
-  <div class="navbar">
-    <a href="../index.html">Home</a>
-    <div class="dropdown">
-        <button class="dropbtn">Tutorials 
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="Tutorials/QuizMaster.html">QuizMaster Tutorial</a>
-            <a href="Tutorials/QuizMasterInstallation.html">Installation Guide</a>
-            <a href="Tutorials/QuizMasterLite.html">QuizMasterLite Tutorial</a>
-            <a href="Tutorials/QuizMasterMini.html">QuizMasterMini Tutorial</a>
+    <div class="navbar">
+        <a href="../index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Tutorials 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="Tutorials/QuizMaster.html">QuizMaster Tutorial</a>
+                <a href="Tutorials/QuizMasterInstallation.html">Installation Guide</a>
+                <a href="Tutorials/QuizMasterLite.html">QuizMasterLite Tutorial</a>
+                <a href="Tutorials/QuizMasterMini.html">QuizMasterMini Tutorial</a>
+            </div>
         </div>
+        <a href="Gallery/Gallery.html">GitHub</a>
+        <a href="https://github.com/QuizMaster-world">GitHub</a>
     </div>
-    <a href="Gallery/Gallery.html">GitHub</a>
-    <a href="https://github.com/QuizMaster-world">GitHub</a>
+
+<div class="header">
+  <h1>Gallery</h1>
 </div>
 
-<img src="../images/QM1.png" alt="Home Screen">
-<p><i>The Home Page</i></p>
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="../images/QM1.png" alt="Home Screen">
+    <p><i>The Home Page</i></p>
 
-<img src="../images/QM2.png" alt="Home Screen">
-<p><i>QuizCreator</i></p>
+    <img src="../images/QM2.png" alt="Home Screen">
+    <p><i>QuizCreator</i></p>
 
-<img src="../images/QM3.png" alt="Home Screen">
-<p><i>Game Modes</i></p>
+    <img src="../images/QM3.png" alt="Home Screen">
+    <p><i>Game Modes</i></p>
 
-<img src="../images/QM4.png" alt="Home Screen">
-<p><i>A game of Space Invaders</i></p>
+    <img src="../images/QM4.png" alt="Home Screen">
+    <p><i>A game of Space Invaders</i></p>
 
-<img src="../images/QM5.png" alt="Home Screen">
-<p><i>The Perferences Window</i></p>
+    <img src="../images/QM5.png" alt="Home Screen">
+    <p><i>The Perferences Window</i></p>
 
-<img src="../images/QML1.png" alt="Home Screen">
-<p><i>QuizMasterLite</i></p>
+    <img src="../images/QML1.png" alt="Home Screen">
+    <p><i>QuizMasterLite</i></p>
 
-<img src="../images/QMM1.png" alt="Home Screen">
-<p><i>QuizMasterMini</i></p>
+    <img src="../images/QMM1.png" alt="Home Screen">
+    <p><i>QuizMasterMini</i></p>
+  </div>
+</div>
+
+</body>
 
 <footer>
-  <div class="container">
-      <p>&copy; 2025 QuizMaster. All rights reserved.</p>
-  </div>
-</footer>
-</body>
+    <div class="container">
+        <p>&copy; 2025 QuizMaster. All rights reserved.</p>
+    </div>
+  </footer>
+
 </html>
