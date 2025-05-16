@@ -1,1 +1,1 @@
-# See Our [Website](https://quizmaster-world.github.io/)
+# QuizMaster-world.github.io
