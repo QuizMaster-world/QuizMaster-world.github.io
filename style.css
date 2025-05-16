@@ -107,6 +107,32 @@ img {
   display: block;
 }
 
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+ul li {
+  margin: 5px 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+ul li a:hover {
+  background-color: #333;
+  color: white;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
