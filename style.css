@@ -1,13 +1,13 @@
 :root {
-  --primary: #23272f;
-  --secondary: #00e676;
-  --accent: #00b0ff;
-  --text-light: #fafafa;
+  --primary: #02ff02; 
+  --secondary: #fe202a; 
+  --accent: #2196f3; 
+  --text-light: #f4f8fb;
   --text-dark: #222;
-  --card-bg: #252b38;
-  --navbar-bg: #21252a;
-  --footer-bg: #181a1e;
-  --shadow: 0 4px 24px rgba(0,0,0,0.12);
+  --card-bg: #6dec6d; 
+  --navbar-bg: #2196f3;
+  --footer-bg: #02ff02;
+  --shadow: 0 4px 24px rgba(33, 150, 243, 0.10);
   --radius: 18px;
   --transition: 0.2s cubic-bezier(.46,.03,.52,.96);
   --space-xs: 0.5rem;
@@ -25,7 +25,7 @@
 body {
   font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
   background: linear-gradient(120deg, var(--primary) 0%, var(--card-bg) 100%);
-  color: var(--text-light);
+  color: var(--text-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,20 +37,20 @@ body {
 
 h1, h2, h3, h4 {
   color: var(--secondary);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  margin-top: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  margin-top: 2%;
   margin-left: 2%;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.22);
+  text-shadow: 0 1px 8px rgba(33,150,243,0.15);
 }
 
 h5, h6 {
   color: var(--secondary);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
   margin-left: 5%;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.22);
+  text-shadow: 0 1px 8px rgba(33,150,243,0.15);
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child {
@@ -72,16 +72,27 @@ a:hover {
   color: var(--secondary);
 }
 
-code {
-  color: var(--secondary);
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: 100;
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
+pre {
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+  background: #07b607;
+  color: #00e676; 
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0 1.5rem 2rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 12px rgba(2,255,2,0.08);
+  overflow-x: auto;
+  border-left: 5px solid #2196f3; 
 }
 
-pre{
-  margin-left: 2rem;
+code {
+  background: #1ecc2c;
+  color: #1f01039c;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  font-size: 0.99em;
+  box-shadow: none;
+  border-left: none;
 }
 
 img {
@@ -90,7 +101,6 @@ img {
   box-shadow: var(--shadow);
   margin: var(--space-md) 0;
   margin-left: 3%;
-
 }
 
 section, .card, .content > * {
@@ -105,7 +115,6 @@ ul {
   list-style: disc;
   padding-left: 2rem;
   margin: 1rem 0;
-
 }
 
 ul li {
@@ -114,10 +123,10 @@ ul li {
 
 ul li a {
   background: var(--card-bg);
-  color: var(--text-light);
+  color: var(--text-dark);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
-  border: none;
+  border: 1.5px solid var(--accent);
   box-shadow: var(--shadow);
   transition: background var(--transition), color var(--transition), transform var(--transition);
   font-weight: 500;
@@ -125,14 +134,15 @@ ul li a {
 }
 ul li a:hover {
   background: var(--accent);
-  color: var(--text-dark);
+  color: var(--text-light);
   transform: translateY(-2px) scale(1.04);
+  border-color: var(--secondary);
 }
 
 .navbar {
   width: 100%;
   background: var(--navbar-bg);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.14);
+  box-shadow: 0 2px 12px rgba(33,150,243,0.14);
   display: flex;
   align-items: center;
   padding: 0 2vw;
@@ -156,7 +166,7 @@ ul li a:hover {
 
 .navbar a:hover, .dropdown:hover .dropbtn {
   background: var(--secondary);
-  color: var(--text-dark);
+  color: var(--text-light);
   box-shadow: var(--shadow);
 }
 
@@ -179,7 +189,7 @@ ul li a:hover {
 
 .dropdown-content a {
   padding: 12px 18px;
-  color: var(--text-light);
+  color: var(--text-dark);
   transition: background var(--transition), color var(--transition);
   border-radius: 0;
   background: none;
@@ -188,7 +198,7 @@ ul li a:hover {
 
 .dropdown-content a:hover {
   background: var(--accent);
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .dropdown:hover .dropdown-content {
@@ -217,10 +227,12 @@ ul li a:hover {
   width: 100%;
   max-width: 900px;
   transition: box-shadow var(--transition), transform var(--transition);
+  border: 2px solid var(--primary);
 }
 .card:hover {
-  box-shadow: 0 8px 36px rgba(0,0,0,0.22);
+  box-shadow: 0 8px 36px rgba(33,150,243,0.22);
   transform: translateY(-4px) scale(1.02);
+  border-color: var(--secondary);
 }
 
 .flex-container {
@@ -253,12 +265,12 @@ ul li a:hover {
 
 .footer {
   background: var(--footer-bg);
-  color: var(--text-light);
+  color: var(--text-dark);
   padding: 22px 0;
   width: 100%;
   font-size: 1rem;
   letter-spacing: 0.02em;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.13);
+  box-shadow: 0 -2px 12px rgba(33,150,243,0.13);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,7 +282,7 @@ input, button, select, textarea {
   border: none;
   border-radius: var(--radius);
   background: var(--card-bg);
-  color: var(--text-light);
+  color: var(--text-dark);
   padding: 10px 16px;
   font-size: 1rem;
   margin: 8px 0 var(--space-md) 0;
@@ -281,25 +293,27 @@ input, button, select, textarea {
 }
 input:focus, button:focus, select:focus, textarea:focus {
   background: var(--accent);
-  color: var(--text-dark);
+  color: var(--text-light);
   box-shadow: 0 0 0 2px var(--secondary);
 }
 
 button {
   background: var(--secondary);
-  color: var(--text-dark);
+  color: var(--text-light);
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 12px rgba(33,150,243,0.10);
   transition: background var(--transition), color var(--transition), transform var(--transition);
   width: auto;
   min-width: 120px;
   padding: 10px 22px;
+  border: 2px solid var(--accent);
 }
 
 button:hover {
   background: var(--accent);
   color: var(--text-light);
+  border-color: var(--secondary);
   transform: translateY(-2px) scale(1.04);
 }
 
@@ -312,5 +326,5 @@ body::-webkit-scrollbar-thumb {
   border-radius: 8px;
 }
 
-::-moz-selection { background: var(--secondary); color: var(--text-dark); }
-::selection { background: var(--secondary); color: var(--text-dark); }
+::-moz-selection { background: var(--secondary); color: var(--text-light); }
+::selection { background: var(--secondary); color: var(--text-light); }
