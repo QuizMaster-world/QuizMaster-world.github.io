@@ -10,6 +10,10 @@
   --shadow: 0 4px 24px rgba(0,0,0,0.12);
   --radius: 18px;
   --transition: 0.2s cubic-bezier(.46,.03,.52,.96);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
 }
 
 * {
@@ -28,13 +32,24 @@ body {
   width: 100%;
   letter-spacing: 0.03em;
   font-size: 1.12rem;
+  line-height: 1.7;
 }
 
 h1, h2, h3, h4 {
   color: var(--secondary);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-lg);
   text-shadow: 0 1px 8px rgba(0,0,0,0.22);
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child {
+  margin-top: var(--space-md);
+}
+
+p, .content > p, .card > p {
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-sm);
 }
 
 a {
@@ -50,15 +65,24 @@ img {
   max-width: 100%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  margin: var(--space-md) 0;
+}
+
+section, .card, .content > * {
+  margin-bottom: var(--space-lg);
 }
 
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: var(--space-md) 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+ul li {
+  margin: var(--space-xs) var(--space-sm);
 }
 
 ul li a {
@@ -70,6 +94,7 @@ ul li a {
   box-shadow: var(--shadow);
   transition: background var(--transition), color var(--transition), transform var(--transition);
   font-weight: 500;
+  margin-bottom: var(--space-xs);
 }
 ul li a:hover {
   background: var(--accent);
@@ -161,7 +186,7 @@ ul li a:hover {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 2rem;
-  margin: 2rem 0;
+  margin: var(--space-lg) 0;
   width: 100%;
   max-width: 900px;
   transition: box-shadow var(--transition), transform var(--transition);
@@ -176,6 +201,7 @@ ul li a:hover {
   flex-wrap: wrap;
   gap: 2vw;
   width: 100%;
+  margin-bottom: var(--space-lg);
 }
 
 .flex-item-left, .flex-item-right {
@@ -210,6 +236,7 @@ ul li a:hover {
   justify-content: center;
   align-items: center;
   border-top: 2px solid var(--secondary);
+  margin-top: var(--space-lg);
 }
 
 input, button, select, textarea {
@@ -219,7 +246,7 @@ input, button, select, textarea {
   color: var(--text-light);
   padding: 10px 16px;
   font-size: 1rem;
-  margin: 8px 0;
+  margin: 8px 0 var(--space-md) 0;
   transition: background var(--transition), box-shadow var(--transition);
   box-shadow: var(--shadow);
   width: 100%;
