@@ -12,8 +12,8 @@
   --transition: 0.2s cubic-bezier(.46,.03,.52,.96);
   --space-xs: 0.5rem;
   --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
+  --space-md: 1rem;
+  --space-lg: 1rem;
 }
 
 * {
@@ -62,7 +62,7 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin: var(--space-md) 0;
