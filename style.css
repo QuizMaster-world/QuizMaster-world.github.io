@@ -13,7 +13,7 @@
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1rem;
-  --space-lg: 1rem;
+  --space-lg: 2rem;
 }
 
 * {
@@ -38,8 +38,8 @@ body {
 h1, h2, h3, h4 {
   color: var(--secondary);
   font-weight: 700;
-  margin-bottom: var(--space-md);
-  margin-top: var(--space-lg);
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
   text-shadow: 0 1px 8px rgba(0,0,0,0.22);
 }
 
@@ -62,7 +62,7 @@ a:hover {
 }
 
 img {
-  max-width: 80%;
+  max-width: 100%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin: var(--space-md) 0;
@@ -73,16 +73,13 @@ section, .card, .content > * {
 }
 
 ul {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-md) 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  list-style: disc;
+  padding-left: 2rem;
+  margin: 1rem 0;
 }
 
 ul li {
-  margin: var(--space-xs) var(--space-sm);
+  margin-bottom: 1rem;
 }
 
 ul li a {
@@ -176,8 +173,8 @@ ul li a:hover {
   align-items: center;
   justify-content: flex-start;
   padding: 3vw 1vw;
-  width: 100%;
-  max-width: 1200px;
+  width: 80%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
