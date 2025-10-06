@@ -16,15 +16,9 @@
   --space-lg: 2rem;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
-  background: linear-gradient(120deg, var(--primary) 0%, var(--card-bg) 100%);
+  background: var(--primary);
   color: var(--text-dark);
   min-height: 100vh;
   display: flex;
@@ -35,13 +29,18 @@ body {
   line-height: 1.7;
 }
 
+p, .content > p, .card > p {
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-sm);
+  margin-left: 5%;
+}
+
 h1, h2, h3, h4 {
   color: var(--secondary);
   font-weight: 800;
   margin-bottom: 0.25rem;
   margin-top: 2%;
   margin-left: 2%;
-  text-shadow: 0 1px 8px rgba(33,150,243,0.15);
 }
 
 h5, h6 {
@@ -50,24 +49,8 @@ h5, h6 {
   margin-bottom: 0.5rem;
   margin-top: 1rem;
   margin-left: 5%;
-  text-shadow: 0 1px 8px rgba(33,150,243,0.15);
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child {
-  margin-top: var(--space-md);
-}
-
-p, .content > p, .card > p {
-  margin-bottom: var(--space-md);
-  margin-top: var(--space-sm);
-  margin-left: 5%;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color var(--transition);
-}
 a:hover {
   color: var(--secondary);
 }
@@ -112,7 +95,6 @@ li {
 }
 
 ul {
-  list-style: disc;
   padding-left: 2rem;
   margin: 1rem 0;
 }
@@ -135,7 +117,6 @@ ul li a {
 ul li a:hover {
   background: var(--accent);
   color: var(--text-light);
-  transform: translateY(-2px) scale(1.04);
   border-color: var(--secondary);
 }
 
@@ -167,7 +148,6 @@ ul li a:hover {
 .navbar a:hover, .dropdown:hover .dropbtn {
   background: var(--secondary);
   color: var(--text-light);
-  box-shadow: var(--shadow);
 }
 
 .dropdown {
@@ -325,6 +305,7 @@ body::-webkit-scrollbar-thumb {
   background: var(--accent);
   border-radius: 8px;
 }
+
 
 ::-moz-selection { background: var(--secondary); color: var(--text-light); }
 ::selection { background: var(--secondary); color: var(--text-light); }
