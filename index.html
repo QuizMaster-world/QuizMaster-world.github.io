@@ -1,86 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>
-QuizMaster World
-</title>
-<link rel="icon" type="image/x-icon" href="./images/icon.ico">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster World</title>
+    <link rel="icon" type="image/x-icon" href="./images/icon.ico">
+    <link rel="stylesheet" href="style.css">
+
+<script>
+const quizData = {
+    title: "Sample Quiz",
+    questions: [
+        {
+            question: "What is the capital of France?",
+            correctAnswer: "Paris",
+            wrongAnswers: ["London", "Berlin", "Madrid"],
+            timeout: 30
+        },
+        {
+            question: "Which planet is known as the Red Planet?",
+            correctAnswer: "Mars", 
+            wrongAnswers: ["Venus", "Jupiter", "Mercury"],
+            timeout: 30
+        },
+        {
+            question: "What is 48/8?",
+            correctAnswer: "6",
+            wrongAnswers: ["40", "384", "24"],
+            timeout: 30
+        },
+        {
+            question: "Which of these is not a primary color?",
+            correctAnswer: "Green",
+            wrongAnswers: ["Red", "Blue", "Yellow"],
+            timeout: 30
+        },
+        {
+            question: "Who wrote 'Romeo and Juliet'?",
+            correctAnswer: "William Shakespeare",
+            wrongAnswers: ["Charles Dickens", "Jane Austen", "Mark Twain"],
+            timeout: 30
+        }
+    ]
+};
+
+let currentQuestionIndex = 0;
+let score = 0;
+let quizActive = false;
+let revealAnswerMode = false;
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    quizActive = true;
+    revealAnswerMode = false;
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('start-quiz').style.display = 'none';
+    document.getElementById('quiz-title').textContent = quizData.title;
+    displayQuestion();
+}
+
+function displayQuestion() {
+    if (currentQuestionIndex >= quizData.questions.length) {
+        endQuiz();
+        return;
+    }
+
+    const currentQuestion = quizData.questions[currentQuestionIndex];
+    const questionElement = document.getElementById('question');
+    const answersContainer = document.getElementById('answers-container');
+    
+    questionElement.textContent = `Question ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+    answersContainer.innerHTML = '';
+    
+    const allAnswers = [currentQuestion.correctAnswer, ...currentQuestion.wrongAnswers];
+    shuffleArray(allAnswers);
+    
+    allAnswers.forEach((answer, index) => {
+        const button = document.createElement('button');
+        button.className = 'answer-btn';
+        button.textContent = `${index + 1}. ${answer}`;
+        button.onclick = () => checkAnswer(answer);
+        if (revealAnswerMode && answer === currentQuestion.correctAnswer) {
+            button.classList.add('correct-answer');
+        }
+        answersContainer.appendChild(button);
+    });
+
+    document.getElementById('progress').textContent = 
+        `Question ${currentQuestionIndex + 1} of ${quizData.questions.length}`;
+        
+    document.getElementById('reveal-answer').textContent = "Reveal Answer";
+    revealAnswerMode = false;
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function checkAnswer(selectedAnswer) {
+
+    const currentQuestion = quizData.questions[currentQuestionIndex];
+    const correct = selectedAnswer === currentQuestion.correctAnswer;
+    
+    const feedback = document.getElementById('feedback');
+    feedback.textContent = correct ? 'Correct!' : 'Incorrect!';
+    feedback.className = correct ? 'feedback-correct' : 'feedback-incorrect';
+    feedback.style.display = 'block';
+
+    if (correct) score++;
+
+    const buttons = document.querySelectorAll('.answer-btn');
+    buttons.forEach(button => {
+        if (button.textContent.includes(currentQuestion.correctAnswer)) {
+            button.classList.add('correct-answer');
+        }
+        button.disabled = true;
+    });
+
+    setTimeout(() => {
+        feedback.style.display = 'none';
+        currentQuestionIndex++;
+        revealAnswerMode = false;
+        displayQuestion();
+    }, 1500);
+}
+
+function revealAnswer() {
+    revealAnswerMode = !revealAnswerMode;
+    const currentQuestion = quizData.questions[currentQuestionIndex];
+    const buttons = document.querySelectorAll('.answer-btn');
+    const revealBtn = document.getElementById('reveal-answer');
+
+    if (revealAnswerMode) {
+        buttons.forEach(button => {
+            if (button.textContent.includes(currentQuestion.correctAnswer)) {
+                button.classList.add('correct-answer');
+            }
+        });
+        revealBtn.textContent = "Hide Answer";
+    } else {
+        buttons.forEach(button => button.classList.remove('correct-answer'));
+        revealBtn.textContent = "Reveal Answer";
+    }
+}
+
+function endQuiz() {
+    quizActive = false;
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = `
+        <h2>Quiz Completed!</h2>
+        <p>You got ${score} out of ${quizData.questions.length} questions correct!</p>
+        `;
+}
+
+function hideQuiz() {
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('start-quiz').style.display = 'block';
+}
+
+</script>
 
 </head>
 <body>
 
-  <div class="navbar">
+<div class="navbar">
     <a href="../index.html">Home</a>
     <div class="dropdown">
-      <button class="dropbtn">Tutorials 
-          <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-          <a href="./Tutorials/QuizMaster.html">QuizMaster Tutorial</a>
-          <a href="./Tutorials/QuizMasterInstallation.html">Installation Guide</a>
-          <a href="./Tutorials/QuizMasterLite.html">QuizMasterLite Tutorial</a>
-          <a href="./Tutorials/QuizMasterMini.html">QuizMasterMini Tutorial</a>
-      </div>
+        <button class="dropbtn">Tutorials 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="./Tutorials/QuizMaster.html">QuizMaster Tutorial</a>
+            <a href="./Tutorials/QuizMasterInstallation.html">Installation Guide</a>
+            <a href="./Tutorials/QuizMasterLite.html">QuizMasterLite Tutorial</a>
+            <a href="./Tutorials/QuizMasterMini.html">QuizMasterMini Tutorial</a>
+        </div>
     </div>
     <a href="./Gallery/Gallery.html">Gallery</a>
     <a href="https://github.com/QuizMaster-world">GitHub</a>
 </div>
 
-<h1> The World of QuizMaster </h1>
+<h1>The World of QuizMaster</h1>
 
-<p>
-QuizMaster World is the organisation that develops the QuizMaster game, a free and open source software for everyone to enjoy.
-</p>
+
+<p>QuizMaster World is the organisation that develops the QuizMaster game, a free and open source software for everyone to enjoy.</p>
   
-<p>
-We have an active and friendly community committed to enhancing the QuizMaster experience. This community works tirelessly to develop multiple variants of the QuizMaster game and to create and curate new quizzes that cover a wide array of topics. Everyone is encouraged to participate, share their creativity, and contribute to the growing library of quizzes.
-</p>
+<p>We have an active and friendly community committed to enhancing the QuizMaster experience. This community works tirelessly to develop multiple variants of the QuizMaster game and to create and curate new quizzes that cover a wide array of topics. Everyone is encouraged to participate, share their creativity, and contribute to the growing library of quizzes.</p>
 
-<h2> Other Versions of QuizMaster </h2>
+<button id="start-quiz" onclick="startQuiz()">Try a Sample Quiz!</button>
 
-<p>
-While the original QuizMaster app is by far the most feature-rich and aesthetically pleasing option, there are several alternative versions tailored for different use cases and user preferences. All of these versions are organized under <a href="//github.com/QuizMaster-world">the QuizMaster Organisation</a>, providing quick accessibility to all. Below is a brief overview of each version:
-</p>
+<div id="quiz-container">
+    <h2 id="quiz-title"></h2>
+    <div id="progress"></div>
+    <div id="question"></div>
+    <div id="answers-container"></div>
+    <div id="quiz-controls">
+        <button id="reveal-answer" onclick="revealAnswer()">Reveal Answer</button>
+    </div>
+    <div id="feedback"></div>
+</div>
+
+<h2>Other Versions of QuizMaster</h2>
+
+<p>While the original QuizMaster app is by far the most feature-rich and aesthetically pleasing option, there are several alternative versions tailored for different use cases and user preferences. All of these versions are organized under <a href="//github.com/QuizMaster-world">the QuizMaster Organisation</a>, providing quick accessibility to all. Below is a brief overview of each version:</p>
+
 <ul>
+    <li>QuizMasterLite is the first lighter version of the QuizMaster App, designed for users who need the core functionality of QuizMaster without the additional "frills" that increase size and complexity. While still using the same GUI framework, QuizMasterLite focuses on retaining the essential quiz creation and playing capabilities, ensuring that users can still enjoy a seamless and engaging experience while benefiting from a significantly smaller application footprint.</li>
+    
+    <li>QuizMasterMini: This scaled-down version is designed for use on smaller devices or for users who may have budgetary constraints regarding data volumes. Despite using a lighter GUI, it retains many of the core functionalities, making it a suitable alternative for those who need a simpler interface without sacrificing key features.</li>
 
- <li>QuizMasterLite is the first lighter version of the QuizMaster App, designed for users who need the core functionality of QuizMaster without the additional "frills" that increase size and complexity. While still using the same GUI framework, QuizMasterLite focuses on retaining the essential quiz creation and playing capabilities, ensuring that users can still enjoy a seamless and engaging experience while benefiting from a significantly smaller application footprint.</li>
- 
- <li>QuizMasterMini: This scaled-down version is designed for use on smaller devices or for users who may have budgetary constraints regarding data volumes. Despite using a lighter GUI, it retains many of the core functionalities, making it a suitable alternative for those who need a simpler interface without sacrificing key features.</li>
+    <li>QuizMasterTerminal: A minimalist iteration of QuizMaster, QuizMasterTerminal uses a TUI rather than a GUI. While QuizMasterTerminal does not have a graphical window, interactions are still kept streamlined through a sleek new TUI window.</li>
 
- <li>QuizMasterTerminal: A minimalist iteration of QuizMaster, QuizMasterTerminal uses a TUI rather than a GUI. While QuizMasterTerminal does not have a graphical window, interactions are still kept streamlined through a sleek new TUI window.</li>
+    <li>MicroQuizMaster: As the lightest version of all QuizMasters, MicroQuizMaster is a mere 8 KB in size. Unlike QuizMasterTerminal, it does not use a TUI or include any example quizzes, focusing instead on ultra-lightweight functionality for users with the lowest-specification devices. It is <i>particularly</i> aimed at <strong>Windows</strong> users or those seeking a no-frills experience with minimal resource consumption.</li>
 
- <li>MicroQuizMaster: As the lightest version of all QuizMasters, MicroQuizMaster is a mere 8 KB in size. Unlike QuizMasterTerminal, it does not use a TUI or include any example quizzes, focusing instead on ultra-lightweight functionality for users with the lowest-specification devices. It is <i>particularly</i> aimed at <strong>Windows</strong> users or those seeking a no-frills experience with minimal resource consumption.</li>
+    <li>QuizMasterPaper: Offers a printable version of quizzes that can be used without a computer, perfect for classroom settings, given in either <code>PDF</code> or <code>TXT</code> format. Unlike the other repositories, QuizMasterPaper does not have quiz playing functionality but the quizcreator can still read the json format present in other repos.</li>
 
- <li>QuizMasterPaper: Offers a printable version of quizzes that can be used without a computer, perfect for classroom settings, given in either <code>PDF</code> or <code>TXT</code> format. Unlike the other repositories, QuizMasterPaper does not have quiz playing functionality but the quizcreator can still read the json format present in other repos.</li>
-
- <li>QuizMaster-web: Currently still in the early stages of development, QuizMaster-web aims to bring the QuizMaster experience to web browsers. This version is expected to provide a more versatile and accessible web-based application of the QuizMaster app, allowing users to engage with quizzes directly in their browsers without requiring any downloads or installations.</li>
+    <li>QuizMaster-web: Currently still in the early stages of development, QuizMaster-web aims to bring the QuizMaster experience to web browsers. This version is expected to provide a more versatile and accessible web-based application of the QuizMaster app, allowing users to engage with quizzes directly in their browsers without requiring any downloads or installations.</li>
 </ul>
 
 <p>Each version of QuizMaster caters to specific needs and environments, ensuring that users can find an appropriate solution that matches their capabilities and preferences.</p>
 
 <h2>Downloading</h2>
 
-<p>
-  To get started with the QuizMaster program, please see our <a href="Tutorials/QuizMasterInstallation.html">installation and troubleshooting guide</a>.</p>
-  <p>Alternatively, similar instructions are also present on our <a href="https://github.com/QuizMaster-world/QuizMaster/blob/main/README.md">GitHub repository</a>.
-  <p>On either of these pages, you will find all necessary information about downloading, installing, and running the QuizMaster game. We have provided detailed instructions to help you set up the software and begin your quizzing journey with ease.</p>
-</p>
-<p>
-  Several tutorials for using the game exist.
-</p>
+<p>To get started with the QuizMaster program, please see our <a href="Tutorials/QuizMasterInstallation.html">installation and troubleshooting guide</a>.</p>
+<p>Alternatively, similar instructions are also present on our <a href="https://github.com/QuizMaster-world/QuizMaster/blob/main/README.md">GitHub repository</a>.</p>
+<p>On either of these pages, you will find all necessary information about downloading, installing, and running the QuizMaster game. We have provided detailed instructions to help you set up the software and begin your quizzing journey with ease.</p>
+
+<p>Several tutorials for using the game exist:</p>
 <ul>
-  <li> <a href="Tutorials/QuizMaster.html">Basic QuizMaster Tutorial</a> </li>
-  <li> <a href="Tutorials/QuizMasterLite.html">Basic QuizMasterLite Tutorial</a> </li>
-  <li> <a href="Tutorials/QuizMasterMini.html">Basic QuizMasterMini Tutorial</a> </li>
+    <li><a href="Tutorials/QuizMaster.html">Basic QuizMaster Tutorial</a></li>
+    <li><a href="Tutorials/QuizMasterLite.html">Basic QuizMasterLite Tutorial</a></li>
+    <li><a href="Tutorials/QuizMasterMini.html">Basic QuizMasterMini Tutorial</a></li>
 </ul>
 
 <p>Happy quizzing!</p>
   
 <footer>
-  <div class="container">
-      <p>&copy; 2025 QuizMaster. All rights reserved.</p>
-  </div>
+    <div class="container">
+        <p>&copy; 2025 QuizMaster. All rights reserved.</p>
+    </div>
 </footer>
+
 </body>
 </html>
